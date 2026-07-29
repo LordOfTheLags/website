@@ -1,0 +1,13 @@
+base_url = "https://lordofthelags.net"
+title = "Laggy World"
+
+compile_sass = true
+
+build_search_index = false
+
+[markdown]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]

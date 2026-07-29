@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("fonts/inconsolata-latin.woff2") format("woff2");
+}
+
+body {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: "Inconsolata", monospace;
+  line-height: 1.6;
+}
