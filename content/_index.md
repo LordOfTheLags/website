@@ -2,6 +2,6 @@
 title = "Home"
 +++
 
-# Hello there
+# Greetings, Adventurer!
 
 Active construction underway :)

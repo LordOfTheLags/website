@@ -1,15 +1,123 @@
 @font-face {
-  font-family: "Inconsolata";
+  font-family: "Handjet";
   font-style: normal;
-  font-weight: 200 900;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("fonts/inconsolata-latin.woff2") format("woff2");
+  src: url("fonts/handjet-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/press-start-2p-latin.woff2") format("woff2");
+}
+
+:root {
+  --bg: #0d0e12;          /* onyx shell */
+  --panel: #15171e;       /* backlit screen */
+  --accent: #3050c8;      /* cobalt */
+  --accent-bright: #6e8cff; /* cobalt, readable on panel */
+  --text: #dfe6f2;
 }
 
 body {
-  max-width: 65ch;
+  max-width: 70ch;
   margin: 0 auto;
   padding: 1rem;
-  font-family: "Inconsolata", monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Handjet", monospace;
+  font-size: 1.25rem;
   line-height: 1.6;
+}
+
+/* -- header: GBA status bar -- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 3px solid var(--accent);
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0;
+    font-family: "Press Start 2P", monospace;
+    font-size: 1rem;
+    color: var(--accent-bright);
+  }
+}
+
+nav a {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+
+  &::before {
+    content: "";
+    width: 0.5em;
+    height: 0.6em;
+    background: currentColor;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    visibility: hidden;
+  }
+  &:hover::before,
+  &:focus::before {
+    visibility: visible;
+  }
+}
+
+/* -- main: backlit menu window -- */
+main {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--panel);
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 14px rgba(48, 80, 200, 0.35);
+
+  /* scanlines, panel only */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 0 1px,
+      transparent 1px 3px
+    );
+  }
+
+  h1, h2 {
+    font-family: "Press Start 2P", monospace;
+    line-height: 1.5;
+    color: var(--accent-bright);
+  }
+  h1 { font-size: 1.1rem; }
+  h2 { font-size: 0.9rem; }
+}
+
+a {
+  color: var(--accent-bright);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* -- footer: bottom bar, webrings go here -- */
+footer {
+  margin-top: 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 3px solid var(--accent);
+  text-align: center;
+  font-size: 0.9rem;
 }
