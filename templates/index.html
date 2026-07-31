@@ -3,3 +3,13 @@
 {% block content %}
 {{ section.content | safe }}
 {% endblock content %}
+
+{% block webring %}
+<nav class="webrings" aria-label="webrings">
+  <div class="webring">
+    <a class="trigger trigger-l" href="https://nixwebr.ing/prev/lags" aria-label="previous site in the nix webring"><span class="tri tri-l"></span>L</a>
+    <a class="webring-logo" href="https://nixwebr.ing"><img src="{{ get_url(path='nix-webring.svg') }}" alt="nix webring"></a>
+    <a class="trigger trigger-r" href="https://nixwebr.ing/next/lags" aria-label="next site in the nix webring">R<span class="tri tri-r"></span></a>
+  </div>
+</nav>
+{% endblock webring %}
