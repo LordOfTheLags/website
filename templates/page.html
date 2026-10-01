@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+
 {% block content %}
 {% if page.date %}
 <h1>{{ page.title }}</h1>

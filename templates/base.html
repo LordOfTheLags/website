@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>{{ config.title }}</h1>
+      <h1><a href={{ config.base_url }}>{{ config.title }}</a></h1>
     <nav><a href="{{ config.base_url }}">Home</a><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></nav>
   </header>
   <main>
